@@ -15,14 +15,18 @@ use Illuminate\Http\Request;
 class LibrosControllerApi extends Controller
 {
     
+    ///////////////////////////////////////////////////////////
+    //METODO INDEX PARA OBTENCION DE LOS REGISTROS
     public function index()
     {
       $libros = Libro::all();
       return $libros;
     }
+    ///////////////////////////////////////////////////////////
 
 
-
+    ///////////////////////////////////////////////////////////
+      //METODO STORE PARA GUARDAR LOS REGISTROS
     public function store(Request $request)
     {
       $libro = new Libro;
@@ -30,13 +34,16 @@ class LibrosControllerApi extends Controller
       $libro->descripcion          = $request->descripcion;
       $libro->precio          = $request->precio;
       $libro->save();
-
-
       return $libro;
     }
 
+    ///////////////////////////////////////////////////////////
 
 
+
+
+    ///////////////////////////////////////////////////////////
+      //METODO STORE PARA MOSTRAR UN REGISTRO ESPECIFICO
 
     public function showlibro($libro)
     {
@@ -51,21 +58,22 @@ class LibrosControllerApi extends Controller
 
             ]);
         }
-    
     }
+    ///////////////////////////////////////////////////////////
 
 
-
+    ///////////////////////////////////////////////////////////
+      //METODO STORE PARA BORRAR UN REGISTRO ESPECIFICO
 
     public function deletelibro(Libro $libro){
 
         $libro->delete();
 
         return response([
-                "message" => "Borrado"
+                "message" => "Borrado Exitoso"
             ]);
-
     }
+    ///////////////////////////////////////////////////////////
 
 
 }

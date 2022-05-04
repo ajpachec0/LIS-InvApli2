@@ -17,7 +17,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         'http://localhost:8000/libro/store', //This is the url that I dont want Csrf for postman.
 
-        
+               
 
  ];
 
